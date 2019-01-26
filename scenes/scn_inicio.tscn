@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="nd2d_inicio" type="Node2D"]
+
+[node name="lbl_run_home" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+
