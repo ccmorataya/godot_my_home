@@ -1,8 +1,33 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/scn_inicio.gd" type="Script" id=1]
+[ext_resource path="res://fonts/megaman10_font.tres" type="DynamicFont" id=2]
 
 [node name="nd2d_inicio" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 294.208 ]
+}
 
-[node name="lbl_run_home" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
+[node name="rch_lbl_run_home" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 376.0
+margin_top = 254.0
+margin_right = 684.0
+margin_bottom = 294.0
+custom_fonts/normal_font = ExtResource( 2 )
+scroll_active = false
+
+[node name="lbl_press_enter" type="Label" parent="."]
+visible = false
+margin_left = 561.202
+margin_top = 537.459
+margin_right = 1003.2
+margin_bottom = 579.459
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0, 1 )
+text = "Press ENTER to continue"
 
