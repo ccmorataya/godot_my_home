@@ -21,7 +21,7 @@ alignment = 1
 margin_left = 105.0
 margin_right = 357.0
 margin_bottom = 500.0
-focus_neighbour_right = NodePath("../btn_the_hunter")
+focus_neighbour_right = NodePath("../btn_snooper_hunter")
 custom_fonts/font = ExtResource( 2 )
 text = "Vampiremobile"
 flat = true
@@ -40,7 +40,7 @@ flat = true
 margin_left = 650.0
 margin_right = 885.0
 margin_bottom = 500.0
-focus_neighbour_left = NodePath("../btn_the_hunter")
+focus_neighbour_left = NodePath("../btn_snooper_hunter")
 custom_fonts/font = ExtResource( 2 )
 text = "Speed runner"
 flat = true
@@ -54,3 +54,6 @@ custom_fonts/normal_font = ExtResource( 2 )
 text = "Select your mission"
 scroll_active = false
 
+[connection signal="pressed" from="hbc_car_selection/btn_vampiremobil" to="." method="_on_btn_vampiremobil_pressed"]
+[connection signal="pressed" from="hbc_car_selection/btn_snooper_hunter" to="." method="_on_btn_snooper_hunter_pressed"]
+[connection signal="pressed" from="hbc_car_selection/btn_speed_runner" to="." method="_on_btn_speed_runner_pressed"]
