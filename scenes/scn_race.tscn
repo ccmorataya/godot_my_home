@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/scn_race.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://fonts/megaman10_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://fonts/MEGAMAN10.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -16,6 +17,11 @@ extents = Vector2( 171.55, 10 )
 
 extents = Vector2( 65.3469, 305.557 )
 
+[sub_resource type="DynamicFont" id=4]
+
+size = 80
+font_data = ExtResource( 4 )
+
 [node name="scn_race" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -26,12 +32,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 2400 )
 
 [node name="rb2d_car" type="KinematicBody2D" parent="."]
-editor/display_folded = true
-position = Vector2( 501.422, 480 )
-
-[node name="spr_car" type="Sprite" parent="rb2d_car"]
-visible = false
-texture = ExtResource( 2 )
+position = Vector2( 500, 480 )
 
 [node name="cs2d_car" type="CollisionShape2D" parent="rb2d_car"]
 shape = SubResource( 2 )
@@ -47,10 +48,19 @@ text = "Vehicle"
 scroll_active = false
 
 [node name="sb2d_bottom" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 7.17499, 540 )
 scale = Vector2( 3, 3 )
 
 [node name="cs2d_bottom" type="CollisionShape2D" parent="sb2d_bottom"]
+position = Vector2( 169.827, 9.54649 )
+shape = SubResource( 1 )
+
+[node name="sb2d_top" type="StaticBody2D" parent="."]
+position = Vector2( 7.175, -64 )
+scale = Vector2( 3, 3 )
+
+[node name="cs2d_top" type="CollisionShape2D" parent="sb2d_top"]
 position = Vector2( 169.827, 9.54649 )
 shape = SubResource( 1 )
 
@@ -61,8 +71,34 @@ position = Vector2( 64, 300 )
 shape = SubResource( 3 )
 
 [node name="sb2d_rigth" type="StaticBody2D" parent="."]
+editor/display_folded = true
 
 [node name="cs2d_rigth" type="CollisionShape2D" parent="sb2d_rigth"]
 position = Vector2( 960, 300 )
 shape = SubResource( 3 )
+
+[node name="lbl_life" type="Label" parent="."]
+margin_left = 10.0
+margin_right = 98.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 3 )
+text = "LIFE:"
+
+[node name="lbl_life_counter" type="Label" parent="."]
+margin_left = 114.0
+margin_right = 202.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 3 )
+
+[node name="lbl_message" type="Label" parent="."]
+visible = false
+margin_left = 95.7811
+margin_top = 177.0
+margin_right = 520.781
+margin_bottom = 234.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0.921569, 1, 0, 1 )
+text = "Oops! you crash
+press ENTER to continue"
+align = 1
 

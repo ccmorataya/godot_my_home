@@ -6,7 +6,7 @@ onready var change_scene = false
 
 func _ready():
 	lbl_run_home.add_color_override("default_color", '#00FF00')
-	var initial_text = '17:00 ... run home'
+	var initial_text = '17:00 ... begin the race to home'
 	printText(initial_text, lbl_run_home)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
