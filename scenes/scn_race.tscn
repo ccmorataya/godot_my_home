@@ -70,10 +70,10 @@ shape = SubResource( 2 )
 position = Vector2( 64, 300 )
 shape = SubResource( 3 )
 
-[node name="sb2d_rigth" type="StaticBody2D" parent="."]
+[node name="sb2d_right" type="StaticBody2D" parent="."]
 editor/display_folded = true
 
-[node name="cs2d_rigth" type="CollisionShape2D" parent="sb2d_rigth"]
+[node name="cs2d_right" type="CollisionShape2D" parent="sb2d_right"]
 position = Vector2( 960, 300 )
 shape = SubResource( 3 )
 

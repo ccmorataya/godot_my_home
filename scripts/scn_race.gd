@@ -38,15 +38,19 @@ func _process(delta):
 		elif Input.is_action_pressed('ui_down'):
 			rigid_player.move_local_y(delta + 8)
 		bg.move_local_y(delta + 1)
-		if sb2d_state:
+		if !colliding:
+			print(sb2d)
 			sb2d.move_local_y(delta + 1)
 		if bg.position.y >= 1024 && globals.player_life > 0:
 			print('you win')
 
 func _physics_process(delta):
+	var left_wall = get_node("sb2d_left")
+	var right_wall = get_node("sb2d_right")
+	var upper_wall = get_node("sb2d_top")
+	var lower_wall = get_node("sb2d_bottom")
 	var player_collision = rigid_player.move_and_collide(delta * velocity)
 	if player_collision:
-		print(player_collision.collider_id)
 		globals.player_life -= 10
 		var x_pos = rigid_player.position.x
 		var y_pos = rigid_player.position.y
@@ -60,8 +64,18 @@ func _physics_process(delta):
 		elif player_collision.position.y < 0:
 			y_pos += 15
 		
-		if player_collision.collider_id != 1138 && player_collision.collider_id != 1142 && player_collision.collider_id != 1140 && player_collision.collider_id != 1144:
-				player_collision.collider.free()
+		var player_collision_rid = player_collision.collider.get_rid().get_id()
+		if player_collision_rid == lower_wall.get_rid().get_id():
+			pass
+		elif player_collision_rid == upper_wall.get_rid().get_id():
+			pass
+		elif player_collision_rid == left_wall.get_rid().get_id():
+			pass
+		elif player_collision_rid == right_wall.get_rid().get_id():
+			pass
+		else:
+			player_collision.collider.free()
+			player_collision = null
 		rigid_player.set_position(Vector2(x_pos, y_pos))
 		colliding = true
 		sb2d_state = false
