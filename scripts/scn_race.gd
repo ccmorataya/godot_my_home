@@ -23,6 +23,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	var weak = weakref(sb2d)
 	var life_counter = get_node("lbl_life_counter")
 	life_counter.text = str(globals.player_life)
 	if Input.is_action_pressed("ui_accept"):
@@ -38,11 +39,12 @@ func _process(delta):
 		elif Input.is_action_pressed('ui_down'):
 			rigid_player.move_local_y(delta + 8)
 		bg.move_local_y(delta + 1)
-		if !colliding:
-			print(sb2d)
+		if weak.get_ref():
 			sb2d.move_local_y(delta + 1)
-		if bg.position.y >= 1024 && globals.player_life > 0:
-			print('you win')
+		if bg.position.y >= 1124 && globals.player_life > 0:
+			message.set_text('You win')
+			message.show()
+			colliding = true
 
 func _physics_process(delta):
 	var left_wall = get_node("sb2d_left")
@@ -74,7 +76,7 @@ func _physics_process(delta):
 		elif player_collision_rid == right_wall.get_rid().get_id():
 			pass
 		else:
-			player_collision.collider.free()
+			player_collision.collider.queue_free()
 			player_collision = null
 		rigid_player.set_position(Vector2(x_pos, y_pos))
 		colliding = true
@@ -82,9 +84,10 @@ func _physics_process(delta):
 		message.show()
 
 func collision_instance():
-		rs2d.set_extents(Vector2(32, 32))
-		cs2d.set_shape(rs2d)
-		sb2d.add_child(cs2d)
-		get_node(".").add_child(sb2d)
-		sb2d.position.x = 500
-		sb2d_state = true
+	randomize()
+	rs2d.set_extents(Vector2(32, 32))
+	cs2d.set_shape(rs2d)
+	sb2d.add_child(cs2d)
+	get_node(".").add_child(sb2d)
+	sb2d.position.x = rand_range(128, 896)
+	sb2d_state = true

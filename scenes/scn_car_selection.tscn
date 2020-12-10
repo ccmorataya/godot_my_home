@@ -23,7 +23,7 @@ margin_right = 357.0
 margin_bottom = 500.0
 focus_neighbour_right = NodePath("../btn_snooper_hunter")
 custom_fonts/font = ExtResource( 2 )
-text = "Vampiremobile"
+text = "VampireMobile"
 flat = true
 
 [node name="btn_snooper_hunter" type="Button" parent="hbc_car_selection"]
@@ -53,7 +53,6 @@ margin_bottom = 60.0
 custom_fonts/normal_font = ExtResource( 2 )
 text = "Select your vehicle"
 scroll_active = false
-
 [connection signal="pressed" from="hbc_car_selection/btn_vampiremobil" to="." method="_on_btn_vampiremobil_pressed"]
 [connection signal="pressed" from="hbc_car_selection/btn_snooper_hunter" to="." method="_on_btn_snooper_hunter_pressed"]
 [connection signal="pressed" from="hbc_car_selection/btn_speed_runner" to="." method="_on_btn_speed_runner_pressed"]
